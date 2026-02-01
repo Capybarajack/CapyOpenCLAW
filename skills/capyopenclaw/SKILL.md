@@ -11,10 +11,11 @@ description: Apply the CapyOpenCLAW workflow and accumulated learnings when doin
 2. Use **Codex CLI** to implement (do not hand-edit code as the primary implementation path).
    - Run Codex with **`pty:true`**.
    - Run inside a **git repo**.
-3. After finishing a full workflow cycle (planning → implementation → verification → archive), update learnings:
+3. For **frontend/UI work**, apply the **`frontend-design`** skill (Anthropic) to drive interface aesthetics and production-grade UI output.
+4. After finishing a full workflow cycle (planning → implementation → verification → archive), update learnings:
    - Append to `references/learnings.md`.
    - Keep entries short and actionable.
-4. After each skill update, **commit and push** to: https://github.com/Capybarajack/CapyOpenCLAW.git
+5. After each skill update, **commit and push** to: https://github.com/Capybarajack/CapyOpenCLAW.git
 
 ## Standard workflow (OPSX)
 
