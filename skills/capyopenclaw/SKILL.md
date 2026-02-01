@@ -11,6 +11,7 @@ description: Apply the CapyOpenCLAW workflow and accumulated learnings when doin
 2. Use **Codex CLI** to implement (do not hand-edit code as the primary implementation path).
    - Run Codex with **`pty:true`**.
    - Run inside a **git repo**.
+   - When in doubt about flags/sandbox/approvals/models, consult the **`codex-official`** skill.
 3. For **frontend/UI work**, apply the **`frontend-design`** skill (Anthropic) to drive interface aesthetics and production-grade UI output.
 4. After finishing a full workflow cycle (planning → implementation → verification → archive), update learnings:
    - Append to `references/learnings.md`.

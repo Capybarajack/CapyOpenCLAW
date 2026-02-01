@@ -17,3 +17,12 @@
     - None noted yet.
   - **Decision / rule for next time**:
     - For frontend/UI tasks, always apply `frontend-design` to avoid generic UI output.
+
+- **Date**: 2026-02-01
+  - **Context**: Codex official docs → reusable skill
+  - **What worked**:
+    - Summarized Codex official docs into a small, referencable skill with separate reference files.
+  - **What failed / pitfalls**:
+    - N/A
+  - **Decision / rule for next time**:
+    - Keep SKILL.md concise; put long doc excerpts into `references/*` and link back to official docs.
