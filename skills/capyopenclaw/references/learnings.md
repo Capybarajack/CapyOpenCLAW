@@ -26,3 +26,12 @@
     - N/A
   - **Decision / rule for next time**:
     - Keep SKILL.md concise; put long doc excerpts into `references/*` and link back to official docs.
+
+- **Date**: 2026-02-03
+  - **Context**: ProteinCare UI refactor / Codex CLI sandbox restrictions
+  - **What worked**:
+    - When aligning page UI, reusing existing design system classes (pc-frame / pc-topbar / pc-bottombar / pc-card / preview-frame) keeps styles consistent across pages.
+  - **What failed / pitfalls**:
+    - Codex CLI runs may be forced into `sandbox: read-only` + `approval: never` in this environment, preventing file writes even when passing `-s workspace-write`.
+  - **Decision / rule for next time**:
+    - If Codex cannot write due to enforced read-only sandbox, fall back to OpenClaw file tools (write/edit) and then verify via `npm run build` + git commit/push.
