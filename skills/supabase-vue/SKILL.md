@@ -31,7 +31,8 @@ export const supabase = createClient(
 )
 ```
 
-## 2) Nuxt (3/4) recommended pattern
+## 2) Nuxt (SSR/CSR) recommended pattern
+
 ### 2.1 Runtime config
 Put in `.env`:
 - `SUPABASE_URL=...`
@@ -49,14 +50,24 @@ export default defineNuxtConfig({
 })
 ```
 
-### 2.2 Provide a client via plugin (single instance)
+### 2.2 SSR-aware Auth (cookie-based session)
+If you use SSR for authenticated pages/data, don’t rely on localStorage session.
+Use `@supabase/ssr`:
+- browser client: `createBrowserClient()`
+- server client: `createServerClient()` with cookie adapters
+
+See: `references/nuxt-ssr.md`.
+
+### 2.3 Provide a browser client via plugin (single instance)
+For CSR usage + Realtime subscriptions.
 ```ts
 // plugins/supabase.client.ts
-import { createClient } from '@supabase/supabase-js'
+import { createBrowserClient } from '@supabase/ssr'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
-  const supabase = createClient(
+
+  const supabase = createBrowserClient(
     String(config.public.supabaseUrl),
     String(config.public.supabasePublishableKey)
   )
@@ -161,5 +172,6 @@ const supabase = createClient<Database>(url, key)
 - `references/local-dev-cli.md`
 - `references/typescript-types.md`
 - `references/auth-ssr-notes.md`
+- `references/nuxt-ssr.md`
 - `references/storage-notes.md`
 - `references/realtime-notes.md`
