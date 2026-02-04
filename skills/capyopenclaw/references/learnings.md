@@ -35,3 +35,13 @@
     - Codex CLI runs may be forced into `sandbox: read-only` + `approval: never` in this environment, preventing file writes even when passing `-s workspace-write`.
   - **Decision / rule for next time**:
     - If Codex cannot write due to enforced read-only sandbox, fall back to OpenClaw file tools (write/edit) and then verify via `npm run build` + git commit/push.
+
+- **Date**: 2026-02-04
+  - **Context**: ProteinCare UX improvement (one-click analysis) + blue palette refresh
+  - **What worked**:
+    - Driving the flow via a query flag (`/analysis?autostart=1`) allows “one click” UX without removing the Analysis page’s manual trigger (safer for cost control).
+    - Refactoring accent color usages to `rgba(var(--accent-rgb), …)` keeps the palette consistent and makes future theme swaps much easier.
+  - **What failed / pitfalls**:
+    - Hard-coded inline RGBA values can easily drift from the global theme; prefer CSS variables whenever possible.
+  - **Decision / rule for next time**:
+    - For UX auto-actions that have cost (API tokens), gate them behind an explicit route flag instead of auto-running on page visit.
