@@ -53,6 +53,15 @@ to authenticated
 using (user_id = auth.uid());
 ```
 
+## Dashboard read checklist
+
+If dashboard shows DB errors (401/403) or images fail to render:
+
+- DB SELECT RLS must allow authenticated users to select their own `food_entries` and `food_entry_items`.
+- Storage SELECT policy must allow reading objects under `<uid>/...` for the bucket.
+- If using signed URLs:
+  - the client still needs Storage SELECT permission for the object.
+
 ## Optional hardening (items must match entry owner)
 
 ```sql

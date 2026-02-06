@@ -54,6 +54,41 @@ Example:
 - Insert into `food_entries` with `user_id`, `image_bucket`, `image_path`, totals, `result_json`, `raw_text`.
 - Then insert into `food_entry_items` with `entry_id` + `user_id`.
 
+## Dashboard: load from DB when logged in; fallback to localStorage when logged out
+
+### Why
+
+- Logged-in users expect their history to be durable and synced.
+- Logged-out users can still use a lightweight local demo using localStorage.
+
+### Implementation notes (Nuxt 3)
+
+- Do **not** force auth middleware on the dashboard route.
+- Determine mode with `useAuthUser()`:
+  - If `user?.id` exists: fetch from DB.
+  - Else: `useUploadLog().load()` and render localStorage logs.
+
+### Fetching entries + items
+
+- Query `food_entries` filtered by `user_id`.
+- Order by `captured_at desc`.
+- Include related `food_entry_items` and order items by `sort_order asc`.
+
+### Showing private images
+
+Buckets are private. To render images in the dashboard, generate signed URLs:
+
+- `supabase.storage.from(image_bucket).createSignedUrl(image_path, expiresInSeconds)`
+
+Cache signed URLs in memory (map by `entry.id`) to avoid regenerating them every render.
+
+### Refresh triggers
+
+Refresh data on:
+
+- route change (e.g. watch `route.fullPath`)
+- auth change (e.g. watch `user.id`)
+
 ## DB RLS policies (tables)
 
 If you insert from the frontend, you must have RLS policies for `authenticated`.
