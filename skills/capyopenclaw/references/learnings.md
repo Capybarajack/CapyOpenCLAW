@@ -55,3 +55,13 @@
     - Imported third-party skills often include environment-specific paths and IDs that do not match local deployments.
   - **Decision / rule for next time**:
     - After importing external skills, immediately run a portability pass (paths, interpreter command, identifiers) before marking as production-ready.
+
+- **Date**: 2026-02-11
+  - **Context**: Installing `microsoft/markitdown` as a reusable OpenClaw skill
+  - **What worked**:
+    - Importing upstream source into `skills/markitdown` and adding a concise `SKILL.md` made the repo discoverable by OpenClaw skill scanning.
+    - Verifying with `openclaw status --all` immediately confirmed skill eligibility count increase.
+  - **What failed / pitfalls**:
+    - On Windows, `python` was unavailable in PATH while `py` worked; installation commands must account for launcher differences.
+  - **Decision / rule for next time**:
+    - For Python-based skills on Windows, try `py -m pip ...` first and include cross-platform launcher notes in SKILL instructions.
