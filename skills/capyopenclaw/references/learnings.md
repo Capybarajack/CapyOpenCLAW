@@ -75,3 +75,13 @@
     - Inbound Telegram delivery cannot be force-retried message-by-message from OpenClaw alone.
   - **Decision / rule for next time**:
     - For channel reliability skills, codify what is configurable (retry policy) and explicitly define an operational recovery loop for non-replayable failures.
+
+- **Date**: 2026-02-11
+  - **Context**: Team-tasks local-mode template while preserving Telegram worker mode
+  - **What worked**:
+    - Adding a Mode C (local workers) to SKILL guidance enabled channel-independent orchestration using the same task-manager state machine.
+    - Keeping Telegram and local dispatch as interchangeable execution backends reduced migration risk.
+  - **What failed / pitfalls**:
+    - Team instructions can drift toward channel-specific assumptions unless explicitly documenting both dispatch paths.
+  - **Decision / rule for next time**:
+    - For multi-agent skills, always document at least one non-channel fallback workflow (local/session-based) next to channel-based mode.

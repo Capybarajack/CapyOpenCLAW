@@ -260,12 +260,46 @@ $TM add diamond review    -a monitor-bot -d "integrate" --desc "Final review"
 
 ## Choosing Between Modes
 
-| | Mode A (linear) | Mode B (dag) |
-|---|---|---|
-| **When** | Sequential tasks, simple flows | Parallel workstreams, complex deps |
-| **Dispatch** | One at a time, auto-advance | Multiple simultaneous, dependency-driven |
-| **Setup** | `init -p agents` (one command) | `init -m dag` + `add` per task |
-| **Best for** | Bug fixes, simple features | Larger features, spec-driven dev |
+| | Mode A (linear) | Mode B (dag) | Mode C (local workers, no Telegram) |
+|---|---|---|---|
+| **When** | Sequential tasks, simple flows | Parallel workstreams, complex deps | You want local orchestration and lower channel/network dependency |
+| **Dispatch** | One at a time, auto-advance | Multiple simultaneous, dependency-driven | Use `sessions_spawn(agentId=...)` or local session routing |
+| **Setup** | `init -p agents` (one command) | `init -m dag` + `add` per task | Keep task manager JSON + dispatch to local workers |
+| **Best for** | Bug fixes, simple features | Larger features, spec-driven dev | Stable local pipelines while keeping Telegram workers optional |
+
+## Mode C: Local Worker Template (No Telegram)
+
+Keep Telegram worker mode available, but dispatch tasks locally.
+
+### Step 1: Initialize a local template project
+
+```bash
+$TM init local-template -g "Build feature via local multi-agent pipeline" -p "code-agent,test-agent,docs-agent,monitor-bot"
+```
+
+### Step 2: Assign stage tasks
+
+```bash
+$TM assign local-template code-agent "Implement feature X in <repo-path>"
+$TM assign local-template test-agent "Create/update tests for feature X"
+$TM assign local-template docs-agent "Update docs/changelog for feature X"
+$TM assign local-template monitor-bot "Review quality, risks, and release readiness"
+```
+
+### Step 3: Dispatch each stage to local workers
+
+For each stage from `task_manager.py next <project> --json`:
+
+1. Mark stage in progress.
+2. Run local sub-agent task:
+   - `sessions_spawn(task=<task text>, agentId=<stage-agent>, label="tt:<project>:<stage>")`
+3. Capture completion summary.
+4. Save result with `task_manager.py result ...`.
+5. Mark stage done with `task_manager.py update ... done`.
+
+This preserves the same task-manager state machine while avoiding Telegram transport.
+
+Reference workflow: `docs/LOCAL_TEMPLATE.md`.
 
 ## Data Location
 
