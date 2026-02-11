@@ -65,3 +65,13 @@
     - On Windows, `python` was unavailable in PATH while `py` worked; installation commands must account for launcher differences.
   - **Decision / rule for next time**:
     - For Python-based skills on Windows, try `py -m pip ...` first and include cross-platform launcher notes in SKILL instructions.
+
+- **Date**: 2026-02-11
+  - **Context**: New Telegram reliability skill (`telegram-retry-guard`)
+  - **What worked**:
+    - Mapping outbound reliability to built-in `channels.telegram.retry` made the 3-attempt requirement explicit and enforceable.
+    - Separating inbound handling into a 3-cycle recovery/probe flow avoided promising impossible per-message replay.
+  - **What failed / pitfalls**:
+    - Inbound Telegram delivery cannot be force-retried message-by-message from OpenClaw alone.
+  - **Decision / rule for next time**:
+    - For channel reliability skills, codify what is configurable (retry policy) and explicitly define an operational recovery loop for non-replayable failures.
