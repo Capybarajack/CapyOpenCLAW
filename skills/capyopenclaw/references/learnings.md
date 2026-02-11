@@ -85,3 +85,13 @@
     - Team instructions can drift toward channel-specific assumptions unless explicitly documenting both dispatch paths.
   - **Decision / rule for next time**:
     - For multi-agent skills, always document at least one non-channel fallback workflow (local/session-based) next to channel-based mode.
+
+- **Date**: 2026-02-11
+  - **Context**: New hybrid knowledge skill (`team-tasks-hybrid`) for reusable execution experience
+  - **What worked**:
+    - Encapsulating "local default + Telegram fallback" as a separate skill made the operating model reusable across projects.
+    - Keeping transport-switch logic explicit prevented state duplication between local and Telegram runs.
+  - **What failed / pitfalls**:
+    - Without a hard rule, operators may accidentally split truth across channels instead of task_manager state.
+  - **Decision / rule for next time**:
+    - Define a single source of truth (task_manager JSON) and treat all channels as dispatch backends only.
