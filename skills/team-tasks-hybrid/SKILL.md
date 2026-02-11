@@ -32,11 +32,49 @@ Use the same `task_manager.py` JSON state for both modes.
 1. `init` project
 2. `assign` tasks to stage/agent
 3. Dispatch stage task
-4. Save `result`
+4. Save `result` (use fixed envelope format below)
 5. Mark `done`
 6. Continue until complete
 
 Only step 3 changes by mode.
+
+## Visible result envelope (fixed format)
+
+To make stage outputs readable in CLI/JSON and easy to scan, always write `task_manager result` using this envelope:
+
+```text
+[TT_RESULT]
+stage: <code-agent|test-agent|docs-agent|monitor-bot>
+status: <ok|warn|fail>
+summary: <1 sentence>
+deliverables:
+- <artifact or action 1>
+- <artifact or action 2>
+risks:
+- <risk or none>
+next:
+- <next step>
+[/TT_RESULT]
+```
+
+Example:
+
+```text
+[TT_RESULT]
+stage: test-agent
+status: ok
+summary: Smoke checks passed for feature X.
+deliverables:
+- Added 6 integration tests
+- Updated CI test matrix
+risks:
+- None
+next:
+- Hand off to docs-agent for changelog update
+[/TT_RESULT]
+```
+
+Write this full block into `task_manager.py result <project> <stage> "..."`.
 
 ## Dispatch step by mode
 

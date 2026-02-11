@@ -35,10 +35,27 @@ Repeat until done:
    - `task_manager.py update local-template <agent> in-progress`
 3. Dispatch locally (no Telegram)
    - `sessions_spawn(task=<formatted task>, agentId=<agent>, label="tt:local-template:<agent>", cleanup="keep")`
-4. On completion, write summary
-   - `task_manager.py result local-template <agent> "<summary>"`
+4. On completion, write summary in fixed visible format
+   - `task_manager.py result local-template <agent> "<TT_RESULT block>"`
 5. Mark done
    - `task_manager.py update local-template <agent> done`
+
+Recommended `<TT_RESULT block>`:
+
+```text
+[TT_RESULT]
+stage: <code-agent|test-agent|docs-agent|monitor-bot>
+status: <ok|warn|fail>
+summary: <1 sentence>
+deliverables:
+- <artifact or action 1>
+- <artifact or action 2>
+risks:
+- <risk or none>
+next:
+- <next step>
+[/TT_RESULT]
+```
 
 ## 4) Keep Telegram mode available
 

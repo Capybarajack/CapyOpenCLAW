@@ -95,3 +95,13 @@
     - Without a hard rule, operators may accidentally split truth across channels instead of task_manager state.
   - **Decision / rule for next time**:
     - Define a single source of truth (task_manager JSON) and treat all channels as dispatch backends only.
+
+- **Date**: 2026-02-11
+  - **Context**: Team-tasks output visibility enhancement (fixed result envelope)
+  - **What worked**:
+    - Defining a strict `[TT_RESULT]...[/TT_RESULT]` block made stage outputs consistently readable across CLI, JSON state, and chat summaries.
+    - Applying the same format to both local and Telegram-backed flows kept reporting uniform when switching transport.
+  - **What failed / pitfalls**:
+    - Free-form `result` text quickly becomes hard to scan and compare between stages.
+  - **Decision / rule for next time**:
+    - For multi-stage pipelines, standardize `result` payloads with a small fixed schema before scaling usage.
