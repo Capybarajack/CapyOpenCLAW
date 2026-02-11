@@ -45,3 +45,13 @@
     - Hard-coded inline RGBA values can easily drift from the global theme; prefer CSS variables whenever possible.
   - **Decision / rule for next time**:
     - For UX auto-actions that have cost (API tokens), gate them behind an explicit route flag instead of auto-running on page visit.
+
+- **Date**: 2026-02-11
+  - **Context**: CapyOpenCLAW `team-tasks` skill ingestion and normalization
+  - **What worked**:
+    - Rewriting SKILL instructions to be cross-platform (`python`/`python3`) made usage clearer for Windows + Linux users.
+    - Replacing hardcoded host paths and Telegram IDs with placeholders and environment guidance reduced portability risk.
+  - **What failed / pitfalls**:
+    - Imported third-party skills often include environment-specific paths and IDs that do not match local deployments.
+  - **Decision / rule for next time**:
+    - After importing external skills, immediately run a portability pass (paths, interpreter command, identifiers) before marking as production-ready.
