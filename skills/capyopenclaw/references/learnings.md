@@ -115,3 +115,12 @@
     - PowerShell does not support `&&` for command chaining; use `;` instead.
   - **Decision / rule for next time**:
     - Prefer vendoring external skill sources under `skills/<name>/upstream` via subtree, and keep OpenClaw wrapper docs in `skills/<name>/SKILL.md`.
+
+- **Date**: 2026-02-16
+  - **Context**: CapyOpenCLAW skills / add microsoft/TRELLIS.2
+  - **What worked**:
+    - Adding TRELLIS.2 as a docs-only wrapper skill (install + usage + upstream links) keeps the skills repo lightweight while still being actionable.
+  - **What failed / pitfalls**:
+    - Codex CLI may be constrained to `sandbox: read-only` in this environment and cannot create/modify files.
+  - **Decision / rule for next time**:
+    - For large ML research repos, prefer a concise wrapper skill with copy/paste commands instead of vendoring the full upstream source.
