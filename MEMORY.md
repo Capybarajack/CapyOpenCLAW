@@ -24,6 +24,7 @@
 - [P0] Spec-driven workflow: use **OpenSpec (OPSX)** (spec/artifacts-first).
 - [P0] Codex prompts: must be **pure English** even if the user chats in Chinese.
 - [P0] After each completed dev iteration/workflow cycle: record learnings into **CapyOpenCLAW** skill + push updates to <https://github.com/Capybarajack/CapyOpenCLAW.git>.
+- [P0] Future skill creation rule (explicit user mandate): every new skill must be built according to **claude-skill-building-playbook** with no exceptions.
 - [P0] Nuxt file picker: `<input type="file">.click()` must be **synchronous** from a user gesture (no `await` before calling) or browsers may block it.
 - [P0] Nuxt/Vite client check: prefer `import.meta.client` over `process.client` (avoid `process is not defined`).
 - [P0] PowerShell: bash-style input redirection `<` isn’t supported; use piping (e.g. `Get-Content file | ...`).
