@@ -105,3 +105,13 @@
     - Free-form `result` text quickly becomes hard to scan and compare between stages.
   - **Decision / rule for next time**:
     - For multi-stage pipelines, standardize `result` payloads with a small fixed schema before scaling usage.
+
+- **Date**: 2026-02-16
+  - **Context**: CapyOpenCLAW skills / vendoring github/spec-kit
+  - **What worked**:
+    - Using `git subtree add --prefix=skills/spec-kit/upstream ... --squash` cleanly vendors upstream while keeping a local wrapper at `skills/spec-kit/SKILL.md`.
+  - **What failed / pitfalls**:
+    - Codex CLI global flags must be placed **before** the subcommand (e.g. `codex --full-auto exec "..."`), otherwise they may not take effect.
+    - PowerShell does not support `&&` for command chaining; use `;` instead.
+  - **Decision / rule for next time**:
+    - Prefer vendoring external skill sources under `skills/<name>/upstream` via subtree, and keep OpenClaw wrapper docs in `skills/<name>/SKILL.md`.
