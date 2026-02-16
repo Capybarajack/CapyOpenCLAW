@@ -40,6 +40,12 @@ specify init --here --ai codex
 
 Use Spec Kit to shape requirements and plans; use OPSX to run the full implementation and verification loop.
 
+## Optional: Pairing with team-tasks
+
+- **When to use**: When `/speckit.tasks` outputs lots of tasks and you want parallel development or multi-person collaboration.
+- **How**: Paste the `/speckit.tasks` output into the `team-tasks` task JSON, then run the team-tasks stages (code/test/docs).
+  For the full execution workflow, follow the **team-tasks** skill—this section is only a handoff.
+
 ## Updating vendored upstream
 
 ```bash
