@@ -103,6 +103,8 @@ Run in this order:
 
 Use `references/test-suite-template.md` for reusable cases.
 
+For cross-service orchestration, use `references/mcp-enhanced-workflow-template.md`.
+
 ## 7) Troubleshoot systematically
 
 When behavior is wrong, inspect in this order:
