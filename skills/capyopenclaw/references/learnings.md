@@ -124,3 +124,12 @@
     - Codex CLI may be constrained to `sandbox: read-only` in this environment and cannot create/modify files.
   - **Decision / rule for next time**:
     - For large ML research repos, prefer a concise wrapper skill with copy/paste commands instead of vendoring the full upstream source.
+
+- **Date**: 2026-02-17
+  - **Context**: CapyOpenCLAW skills / import anthropics `webapp-testing`
+  - **What worked**:
+    - Pulling upstream skill folder (`skills/webapp-testing`) directly preserved runnable examples and helper script structure.
+  - **What failed / pitfalls**:
+    - If imported files are copied from GitHub UI manually, it's easy to miss nested example files.
+  - **Decision / rule for next time**:
+    - For external skill installs, clone upstream repo then copy the exact skill directory recursively and verify file list before commit.
