@@ -133,3 +133,13 @@
     - If imported files are copied from GitHub UI manually, it's easy to miss nested example files.
   - **Decision / rule for next time**:
     - For external skill installs, clone upstream repo then copy the exact skill directory recursively and verify file list before commit.
+
+- **Date**: 2026-02-18
+  - **Context**: New Steam documentation skill (`steam-web-api-docs`)
+  - **What worked**:
+    - Designing the skill around source confidence (official > community > live sanity check) produced stable, implementation-ready summaries.
+    - Including a fixed output template improved consistency across multi-link document ingestion.
+  - **What failed / pitfalls**:
+    - Valve Developer Wiki pages can be blocked by anti-bot challenges, so full text extraction is not always possible.
+  - **Decision / rule for next time**:
+    - When docs are blocked, verify endpoint contracts directly via `api.steampowered.com` and clearly label confidence level in the final analysis.
