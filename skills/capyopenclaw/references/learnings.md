@@ -152,3 +152,12 @@
     - N/A
   - **Decision / rule for next time**:
     - For skill imports with many rule files, avoid manual file-by-file copy; use full directory copy and verify recursive file inventory before commit.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import `ui-ux-pro-max-skill` from `nextlevelbuilder`
+  - **What worked**:
+    - Using `src/ui-ux-pro-max` as the primary source and copying `.claude/skills/ui-ux-pro-max/SKILL.md` produced a runnable local OpenClaw skill layout.
+  - **What failed / pitfalls**:
+    - On Windows clones, `.claude/skills/ui-ux-pro-max/data` and `scripts` may appear as plain text symlink targets instead of real folders.
+  - **Decision / rule for next time**:
+    - For repos using symlinked skill assets, copy concrete source directories (e.g., `src/...`) rather than relying on symlink placeholders.
