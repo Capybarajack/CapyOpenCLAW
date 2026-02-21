@@ -216,3 +216,12 @@
     - Repos with many skills can cause accidental bulk imports if source path is not constrained.
   - **Decision / rule for next time**:
     - For one-off installs, always copy only the requested skill folder path and verify destination contents before commit.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import `smart-illustrator` from `axtonliu/smart-illustrator`
+  - **What worked**:
+    - Upstream repo already followed skill layout (`SKILL.md` + scripts/references/assets), so full-folder copy worked directly.
+  - **What failed / pitfalls**:
+    - Copying `.git` metadata into workspace skills can pollute repo state if not excluded.
+  - **Decision / rule for next time**:
+    - For full-repo skill imports, mirror all content except VCS/runtime folders (`.git`, `node_modules`) and keep folder name kebab-case.
