@@ -188,3 +188,12 @@
     - Deep plugin paths are easy to mistype, causing silent installs of wrong folders.
   - **Decision / rule for next time**:
     - For deeply nested skill URLs, resolve and verify source path exists before copying, then stage destination explicitly.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import non-skill repo `ssengalanto/tailwind-design-system`
+  - **What worked**:
+    - Wrapping the upstream project under `skills/tailwind-design-system/upstream` plus a concise local `SKILL.md` made a non-native repo usable as an OpenClaw skill.
+  - **What failed / pitfalls**:
+    - Some GitHub repos are app templates, not agent-skill folders, so direct copy alone won’t trigger skill discovery.
+  - **Decision / rule for next time**:
+    - When upstream lacks `SKILL.md`, create a lightweight wrapper skill and keep original source in `upstream/` for reference-driven reuse.

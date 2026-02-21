@@ -1,0 +1,105 @@
+{
+  "name": "new-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reach/portal": "^0.12.1",
+    "body-scroll-lock": "^3.1.5",
+    "clsx": "^1.1.1",
+    "focus-visible": "^5.2.0",
+    "framer-motion": "^2.9.5",
+    "immer": "^8.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-focus-lock": "^2.5.0",
+    "react-scripts": "4.0.1",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint \"./src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint --fix \"./src/**/*.{ts,tsx,js,jsx}\"",
+    "format": "prettier --write \"./src/**/*.{ts,tsx,js,jsx,json,md}\""
+  },
+  "lint-staged": {
+    "*.{ts, tsx, js, jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "CI=true npm run test"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@craco/craco": "^5.9.0",
+    "@storybook/addon-actions": "^6.1.9",
+    "@storybook/addon-essentials": "^6.1.9",
+    "@storybook/addon-links": "^6.1.9",
+    "@storybook/node-logger": "^6.1.9",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.9",
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "tailwindcss/typography",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/body-scroll-lock": "^2.6.1",
+    "@types/faker": "^5.1.5",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "autoprefixer": "^9",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest-dom": "^3.5.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "faker": "^5.1.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "postcss": "^7",
+    "postcss-focus-visible": "^5.0.0",
+    "postcss-import": "^12",
+    "prettier": "^2.2.1",
+    "react-test-renderer": "^17.0.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  }
+}

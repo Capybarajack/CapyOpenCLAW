@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-base-default {
+    @apply text-gray-700 dark:text-gray-400;
+  }
+
+  .text-base-primary {
+    @apply text-primary-500 dark:text-primary-400;
+  }
+
+  .text-base-success {
+    @apply text-green-500 dark:text-green-400;
+  }
+
+  .text-base-warn {
+    @apply text-yellow-500 dark:text-yellow-400;
+  }
+
+  .text-base-danger {
+    @apply text-red-600 dark:text-red-400;
+  }
+
+  .bg-base {
+    @apply bg-white dark:bg-gray-800;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Graphik, sans-serif';
+    src: url(../assets/fonts/GraphikRegular.otf);
+  }
+
+  @font-face {
+    font-family: 'Graphik, sans-serif';
+    src: url(../assets/fonts/GraphikMedium.otf);
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'Graphik, sans-serif';
+    src: url(../assets/fonts/GraphikSemibold.otf);
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: 'Graphik, sans-serif';
+    src: url(../assets/fonts/GraphikBold.otf);
+    font-weight: 700;
+  }
+}
