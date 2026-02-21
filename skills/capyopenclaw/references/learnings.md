@@ -161,3 +161,12 @@
     - On Windows clones, `.claude/skills/ui-ux-pro-max/data` and `scripts` may appear as plain text symlink targets instead of real folders.
   - **Decision / rule for next time**:
     - For repos using symlinked skill assets, copy concrete source directories (e.g., `src/...`) rather than relying on symlink placeholders.
+
+- **Date**: 2026-02-21
+  - **Context**: `ui-ux-pro-max` SKILL.md optimization for OpenClaw triggering/token cost
+  - **What worked**:
+    - Replacing the long monolithic guide with a concise workflow-first SKILL kept trigger intent while reducing instruction bloat.
+  - **What failed / pitfalls**:
+    - Overly long descriptions in frontmatter and repeated checklists increase token overhead without improving execution quality.
+  - **Decision / rule for next time**:
+    - Keep SKILL.md minimal (when-to-use + required workflow + output contract) and keep large references in separate files.
