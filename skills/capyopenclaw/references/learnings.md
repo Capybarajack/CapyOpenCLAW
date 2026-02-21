@@ -170,3 +170,12 @@
     - Overly long descriptions in frontmatter and repeated checklists increase token overhead without improving execution quality.
   - **Decision / rule for next time**:
     - Keep SKILL.md minimal (when-to-use + required workflow + output contract) and keep large references in separate files.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import `vuejs-ai/skills` bundle
+  - **What worked**:
+    - Copying each folder from upstream `skills/` into workspace `skills/` installed the whole Vue skill set in one batch.
+  - **What failed / pitfalls**:
+    - Running `git status skills` can surface unrelated untracked skill dirs (e.g., legacy local folders) that should not be staged accidentally.
+  - **Decision / rule for next time**:
+    - Stage imported skill directories explicitly by name to avoid committing unrelated untracked folders.
