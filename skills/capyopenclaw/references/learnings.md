@@ -143,3 +143,12 @@
     - Valve Developer Wiki pages can be blocked by anti-bot challenges, so full text extraction is not always possible.
   - **Decision / rule for next time**:
     - When docs are blocked, verify endpoint contracts directly via `api.steampowered.com` and clearly label confidence level in the final analysis.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import `react-best-practices` from `vercel-labs/agent-skills`
+  - **What worked**:
+    - Cloning upstream repo and recursively copying `skills/react-best-practices` preserved all nested `rules/*.md` references and metadata in one pass.
+  - **What failed / pitfalls**:
+    - N/A
+  - **Decision / rule for next time**:
+    - For skill imports with many rule files, avoid manual file-by-file copy; use full directory copy and verify recursive file inventory before commit.
