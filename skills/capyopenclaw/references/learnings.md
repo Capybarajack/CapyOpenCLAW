@@ -197,3 +197,13 @@
     - Some GitHub repos are app templates, not agent-skill folders, so direct copy alone won’t trigger skill discovery.
   - **Decision / rule for next time**:
     - When upstream lacks `SKILL.md`, create a lightweight wrapper skill and keep original source in `upstream/` for reference-driven reuse.
+
+- **Date**: 2026-02-21
+  - **Context**: Skills taxonomy refactor (`atomic + category naming + router layer`)
+  - **What worked**:
+    - Adding lightweight router skills (`frontend-ui-playbook`, `frontend-vue-playbook`, `frontend-react-playbook`, `backend-node-playbook`) improved discovery without merging atomic skills.
+    - Maintaining a root `skills/INDEX.md` provided a single source of truth for categories and routing entry points.
+  - **What failed / pitfalls**:
+    - Renaming/moving every atomic folder is high-risk and unnecessary when trigger quality can be improved by router metadata.
+  - **Decision / rule for next time**:
+    - Prefer non-breaking taxonomy layers (index + routers) over mass folder renames; keep atomic skills stable.
