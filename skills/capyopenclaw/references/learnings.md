@@ -207,3 +207,12 @@
     - Renaming/moving every atomic folder is high-risk and unnecessary when trigger quality can be improved by router metadata.
   - **Decision / rule for next time**:
     - Prefer non-breaking taxonomy layers (index + routers) over mass folder renames; keep atomic skills stable.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import `brainstorming` from `obra/superpowers`
+  - **What worked**:
+    - Copying the exact skill subfolder (`skills/brainstorming`) cleanly installed a focused single-file skill.
+  - **What failed / pitfalls**:
+    - Repos with many skills can cause accidental bulk imports if source path is not constrained.
+  - **Decision / rule for next time**:
+    - For one-off installs, always copy only the requested skill folder path and verify destination contents before commit.
