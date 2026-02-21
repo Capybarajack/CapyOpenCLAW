@@ -179,3 +179,12 @@
     - Running `git status skills` can surface unrelated untracked skill dirs (e.g., legacy local folders) that should not be staged accidentally.
   - **Decision / rule for next time**:
     - Stage imported skill directories explicitly by name to avoid committing unrelated untracked folders.
+
+- **Date**: 2026-02-21
+  - **Context**: CapyOpenCLAW skills / import `nodejs-backend-patterns` from `wshobson/agents`
+  - **What worked**:
+    - Cloning upstream repo and copying the exact nested path (`plugins/javascript-typescript/skills/nodejs-backend-patterns`) installed the target skill cleanly.
+  - **What failed / pitfalls**:
+    - Deep plugin paths are easy to mistype, causing silent installs of wrong folders.
+  - **Decision / rule for next time**:
+    - For deeply nested skill URLs, resolve and verify source path exists before copying, then stage destination explicitly.
