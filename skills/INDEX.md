@@ -61,6 +61,8 @@ This repo uses three rules:
 - `team-tasks-hybrid`
 - `telegram-retry-guard`
 - `openclaw-memory-janitor`
+- `memory-lancedb-pro`
+- `codex-openclaw-shared-lancedb`
 - `codex-official`
 - `capyopenclaw`
 - `claude-skill-building-playbook`
