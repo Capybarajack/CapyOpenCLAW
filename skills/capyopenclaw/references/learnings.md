@@ -225,3 +225,13 @@
     - Copying `.git` metadata into workspace skills can pollute repo state if not excluded.
   - **Decision / rule for next time**:
     - For full-repo skill imports, mirror all content except VCS/runtime folders (`.git`, `node_modules`) and keep folder name kebab-case.
+
+- **Date**: 2026-02-28
+  - **Context**: CapyOpenCLAW skills / learned `isdaviddong/HOL_MSAgentFrameworkRC` and packaged as skill
+  - **What worked**:
+    - Converting a tiny sample app into an atomic skill (`SKILL.md` + `references/quickstart.md`) made the RC workflow reusable.
+    - Extracting behavior directly from `Program.cs` (session reuse + `/reset` + `/exit`) produced implementation-accurate guidance.
+  - **What failed / pitfalls**:
+    - Codex CLI was constrained to `sandbox: read-only`, so it could draft content but not write files.
+  - **Decision / rule for next time**:
+    - When Codex is read-only, use Codex for analysis/drafting and finalize file writes via OpenClaw file tools, then verify with git diff.

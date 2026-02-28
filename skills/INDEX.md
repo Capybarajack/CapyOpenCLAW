@@ -53,6 +53,7 @@ This repo uses three rules:
 - `spec-kit`
 - `tdx-bus-samplecode`
 - `BusStatus`
+- `msagent-openai-chat`
 
 ## Orchestration / Ops
 
