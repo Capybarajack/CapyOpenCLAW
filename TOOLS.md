@@ -1,36 +1,48 @@
-# TOOLS.md - Local Notes
+# TOOLS.md — Local Environment Notes
 
-Skills define *how* tools work. This file is for *your* specifics — the stuff that's unique to your setup.
+Use this file as a **machine-specific cheat sheet**.
+Put only local facts here (not general skill docs).
 
-## What Goes Here
+## Quick Rules
 
-Things like:
-- Camera names and locations
-- SSH hosts and aliases  
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
-
-## Examples
-
-```markdown
-### Cameras
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+- Keep entries short and actionable
+- Prefer stable identifiers over descriptions
+- Update immediately after environment changes
+- Never store secrets in plain text
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
+## SSH Hosts
+
+- `home-server` → host: `<ip-or-domain>`, user: `<user>`, auth: `<key/passwordless>`
+- `vps-main` → host: `<ip-or-domain>`, user: `<user>`, notes: `<port/alias>`
+
+## Devices / Cameras
+
+- `living-room-cam` → id: `<device-id>`, location: `living room`
+- `front-door-cam` → id: `<device-id>`, location: `front door`
+
+## TTS / Audio
+
+- provider: `<provider>`
+- preferred voice: `<voice-name-or-id>`
+- default output target: `<speaker/device>`
+
+## OpenClaw Runtime Preferences
+
+- preferred model: `openai-codex/gpt-5.3-codex`
+- coding execution style: `small steps (<=8 min), report change/verify/next`
+
+## Repo Shortcuts
+
+- main workspace: `C:\Users\asdfg\.openclaw\workspace`
+- Star-Office-UI (active path): `F:\openClaw\Star-Office-UI`
+
+## Known Local Quirks
+
+- PowerShell doesn’t support bash-style `<` redirection
+- For Nuxt/Vite client checks, prefer `import.meta.client`
+
+---
+
+Last updated: 2026-03-13
