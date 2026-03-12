@@ -61,6 +61,7 @@ This repo uses three rules:
 - `team-tasks-hybrid`
 - `telegram-retry-guard`
 - `openclaw-memory-janitor`
+- `openclaw-workspace`
 - `codex-official`
 - `capyopenclaw`
 - `claude-skill-building-playbook`
