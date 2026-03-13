@@ -24,6 +24,7 @@ This repo uses three rules:
 - `tailwind-design-system`
 - `react-best-practices`
 - `webapp-testing`
+- `agent-browser-dogfood`
 
 ## Frontend / Vue
 
