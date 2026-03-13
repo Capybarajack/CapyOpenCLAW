@@ -49,6 +49,7 @@ This repo uses three rules:
 ## Data / API / Domain
 
 - `markitdown`
+- `context-hub-openclaw`
 - `steam-web-api-docs`
 - `spec-kit`
 - `tdx-bus-samplecode`
